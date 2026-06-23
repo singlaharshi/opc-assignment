@@ -1,0 +1,550 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9-Week GTM Timeline — 1% Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&amp;display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --white: #FFFFFF;
+  --black: #0A0A0A;
+  --blue: #2563EB;
+  --blue-light: #EFF6FF;
+  --blue-mid: #DBEAFE;
+  --amber: #D97706;
+  --amber-light: #FFFBEB;
+  --amber-mid: #FDE68A;
+  --red: #DC2626;
+  --red-light: #FEF2F2;
+  --red-mid: #FECACA;
+  --green: #16A34A;
+  --green-light: #F0FDF4;
+  --green-mid: #BBF7D0;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-800: #1F2937;
+}
+html { scroll-behavior: smooth; }
+body { font-family: "Inter", sans-serif; background: var(--white); color: var(--black); line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.94); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 0 48px; height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; }
+.nav-logo { font-family: "Playfair Display", serif; font-size: 16px; font-weight: 800; }
+.nav-logo span { color: var(--blue); }
+.nav-divider { width: 1px; height: 18px; background: var(--gray-200); }
+.nav-title { font-size: 13px; font-weight: 500; color: var(--gray-500); }
+.nav-back { font-size: 12px; font-weight: 600; color: var(--blue); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+.nav-back:hover { opacity: 0.7; }
+
+/* HERO */
+.hero {
+  padding: 100px 48px 64px; max-width: 900px; margin: 0 auto;
+  border-bottom: 1px solid var(--gray-100);
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--blue-light); border: 1px solid var(--blue-mid);
+  border-radius: 100px; padding: 5px 14px;
+  font-size: 11px; font-weight: 700; color: var(--blue);
+  margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.8px;
+}
+.hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(36px, 5vw, 58px); font-weight: 900;
+  line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 18px;
+}
+.hero h1 em { font-style: italic; color: var(--blue); }
+.hero-sub { font-size: 16px; color: var(--gray-500); line-height: 1.75; max-width: 580px; margin-bottom: 40px; }
+
+/* PHASE LEGEND */
+.phase-legend { display: flex; gap: 10px; flex-wrap: wrap; }
+.phase-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 13px; border-radius: 100px; border: 1px solid;
+  font-size: 11px; font-weight: 700;
+}
+.phase-badge .dot { width: 6px; height: 6px; border-radius: 50%; }
+.phase-badge.build { background: var(--blue-light); border-color: var(--blue-mid); color: var(--blue); }
+.phase-badge.build .dot { background: var(--blue); }
+.phase-badge.anticipate { background: var(--amber-light); border-color: var(--amber-mid); color: var(--amber); }
+.phase-badge.anticipate .dot { background: var(--amber); }
+.phase-badge.launch { background: var(--red-light); border-color: var(--red-mid); color: var(--red); }
+.phase-badge.launch .dot { background: var(--red); }
+.phase-badge.expand { background: var(--green-light); border-color: var(--green-mid); color: var(--green); }
+.phase-badge.expand .dot { background: var(--green); }
+
+/* MAIN CONTENT */
+.content { max-width: 900px; margin: 0 auto; padding: 48px 48px 96px; }
+
+/* PHASE DROPDOWN */
+.phase-block { margin-bottom: 12px; border: 1px solid var(--gray-200); border-radius: 14px; overflow: hidden; }
+.phase-toggle {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px; cursor: pointer; background: white;
+  border: none; text-align: left; transition: background 0.15s;
+}
+.phase-toggle:hover { background: var(--gray-50); }
+.phase-toggle-left { display: flex; align-items: center; gap: 14px; }
+.phase-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.phase-dot.build { background: var(--blue); }
+.phase-dot.anticipate { background: var(--amber); }
+.phase-dot.launch { background: var(--red); }
+.phase-dot.expand { background: var(--green); }
+.phase-name { font-size: 15px; font-weight: 800; letter-spacing: -0.2px; }
+.phase-name.build { color: var(--blue); }
+.phase-name.anticipate { color: var(--amber); }
+.phase-name.launch { color: var(--red); }
+.phase-name.expand { color: var(--green); }
+.phase-meta { font-size: 12px; color: var(--gray-400); font-weight: 500; }
+.phase-chevron { font-size: 16px; color: var(--gray-400); transition: transform 0.25s; flex-shrink: 0; }
+.phase-block.open .phase-chevron { transform: rotate(180deg); }
+.phase-body { display: none; border-top: 1px solid var(--gray-100); }
+.phase-block.open .phase-body { display: block; }
+
+/* WEEK CARDS inside dropdown */
+.week-card {
+  padding: 24px 24px 20px;
+  border-bottom: 1px solid var(--gray-100);
+  border-left: 4px solid transparent;
+}
+.week-card:last-child { border-bottom: none; }
+.week-card.build { border-left-color: var(--blue); }
+.week-card.anticipate { border-left-color: var(--amber); }
+.week-card.launch { border-left-color: var(--red); background: #0B1E3D; }
+.week-card.expand { border-left-color: var(--green); }
+
+.week-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.week-num { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--gray-400); margin-bottom: 3px; }
+.week-date { font-size: 11px; color: var(--gray-400); font-weight: 600; margin-bottom: 4px; }
+.week-title { font-size: 14px; font-weight: 700; line-height: 1.35; color: var(--black); }
+.week-card.launch .week-num { color: rgba(255,255,255,0.4); }
+.week-card.launch .week-date { color: rgba(255,255,255,0.5); }
+.week-card.launch .week-title { color: white; }
+.product-focus { font-size: 11px; color: var(--gray-400); line-height: 1.5; text-align: right; max-width: 220px; flex-shrink: 0; }
+.product-focus strong { display: block; font-weight: 700; color: var(--gray-500); margin-bottom: 2px; }
+.week-card.launch .product-focus { color: rgba(255,255,255,0.45); }
+.week-card.launch .product-focus strong { color: rgba(255,255,255,0.6); }
+
+.channels { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.channel-block { background: var(--gray-50); border-radius: 8px; padding: 12px 14px; }
+.week-card.launch .channel-block { background: rgba(255,255,255,0.06); }
+.channel-block.full { grid-column: 1 / -1; }
+.channel-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.7px; color: var(--gray-500); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.week-card.launch .channel-label { color: rgba(255,255,255,0.45); }
+.channel-icon { font-size: 11px; }
+.channel-text { font-size: 12px; color: var(--gray-600); line-height: 1.6; }
+.week-card.launch .channel-text { color: rgba(255,255,255,0.65); }
+.channel-text strong { color: var(--gray-800); font-weight: 600; }
+.week-card.launch .channel-text strong { color: rgba(255,255,255,0.85); }
+.channel-text em { font-style: italic; }
+
+/* FOOTER */
+footer {
+  background: var(--gray-50); border-top: 1px solid var(--gray-200);
+  padding: 28px 48px; display: flex; align-items: center; justify-content: space-between;
+}
+.footer-brand { font-family: "Playfair Display", serif; font-size: 15px; font-weight: 800; }
+.footer-brand span { color: var(--blue); }
+.footer-note { font-size: 12px; color: var(--gray-400); }
+
+@media (max-width: 680px) {
+  nav, .hero, .content, footer { padding-left: 20px; padding-right: 20px; }
+  .hero { padding-top: 80px; }
+  .channels { grid-template-columns: 1fr; }
+  .week-header { flex-direction: column; }
+  .product-focus { text-align: left; max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">1<span>%</span> Club</div>
+    <div class="nav-divider"></div>
+    <div class="nav-title">9-Week GTM Timeline</div>
+  </div>
+  <a class="nav-back" href="index.html">← Back to GTM Plan</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow"><span class="dot"></span>Distribution &amp; Channel Strategy</div>
+  <h1>One <em>product</em> at a time.</h1>
+  <p class="hero-sub">This exhaustive 9 week plan stages the launch so each product lands, gets used, and becomes a reason to talk about 1% Club</p>
+  <div class="phase-legend">
+    <div class="phase-badge build"><span class="dot"></span>Build the Problem</div>
+    <div class="phase-badge anticipate"><span class="dot"></span>Build Anticipation</div>
+    <div class="phase-badge launch"><span class="dot"></span>Launch</div>
+    <div class="phase-badge expand"><span class="dot"></span>Expand</div>
+  </div>
+</section>
+
+<div class="content">
+
+  <!-- ── PHASE 1: BUILD THE PROBLEM ── -->
+  <div class="phase-block" id="phase1">
+    <button class="phase-toggle" onclick="togglePhase('phase1')">
+      <div class="phase-toggle-left">
+        <div class="phase-dot build"></div>
+        <div>
+          <div class="phase-name build">Phase 1 — Build the Problem</div>
+          <div class="phase-meta">Weeks 1–2 · Jul 14–Jul 27 · No product mention</div>
+        </div>
+      </div>
+      <span class="phase-chevron">▼</span>
+    </button>
+    <div class="phase-body">
+
+      <!-- WEEK 1 -->
+      <div class="week-card build">
+        <div class="week-header">
+          <div>
+            <div class="week-num">Week 01</div>
+            <div class="week-date">Jul 14–20</div>
+            <div class="week-title">Surface the pain: no product, just the question</div>
+          </div>
+          <div class="product-focus"><strong>Products in focus</strong>None. This week is the problem only.</div>
+        </div>
+        <div class="channels">
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">▶</span> YouTube</div>
+            <div class="channel-text">Sharan appears on a podcast with Nikhil Kamath or Tanmay Bhat — <strong>a cultural voice, not a financial one.</strong> The conversation is about life, not investing. The moment that matters: <em>“You’ve spent 3 years teaching people about money. What do 99% of financial influencers get wrong?”</em> The problem is planted without naming a product.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◆</span> Instagram</div>
+            <div class="channel-text">Street interview reel — <strong>“If you had ₹1 crore, would you still go to work tomorrow?”</strong> Answers are unscripted. Some laugh. Some go quiet. A story poll runs alongside. The reel travels.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">in</span> LinkedIn + X</div>
+            <div class="channel-text">The podcast clip gets paid amplification <strong>targeted at senior professionals and founders — exactly the ICP.</strong> Organic posts: <em>“Just got off Sharan’s latest podcast — game changer.”</em></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◙</span> OOH + PR</div>
+            <div class="channel-text">Large format OOH across Bengaluru, Mumbai, Delhi. <strong>No logo. No product. Just the question:</strong> <em>“If you had ₹1 crore, would you still go to work tomorrow?”</em> People photograph it. The question does the work.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 2 -->
+      <div class="week-card build">
+        <div class="week-header">
+          <div>
+            <div class="week-num">Week 02</div>
+            <div class="week-date">Jul 21–27</div>
+            <div class="week-title">The question keeps travelling — one post opens the waitlist</div>
+          </div>
+          <div class="product-focus"><strong>Products in focus</strong>Beta access opens quietly. Nothing named publicly.</div>
+        </div>
+        <div class="channels">
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">▶</span> YouTube</div>
+            <div class="channel-text">No new video. <strong>The podcast clip continues to travel.</strong> Organic reach does the heavy lifting — no spend needed yet.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◆</span> Instagram</div>
+            <div class="channel-text">Sharan puts up a single post: <strong>“We’ve built something. I need 500 people to try it before we launch. Drop your name in the comments.”</strong> No other detail. Comments fill within hours.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">in</span> LinkedIn + X</div>
+            <div class="channel-text">Same post mirrored on LinkedIn. <strong>Redirects to Instagram for the beta drop.</strong> People who saw the OOH start connecting the dots.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◙</span> OOH + PR</div>
+            <div class="channel-text"><strong>The OOH stays. Same creative.</strong> Awareness is compounding.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── PHASE 2: BUILD ANTICIPATION ── -->
+  <div class="phase-block" id="phase2">
+    <button class="phase-toggle" onclick="togglePhase('phase2')">
+      <div class="phase-toggle-left">
+        <div class="phase-dot anticipate"></div>
+        <div>
+          <div class="phase-name anticipate">Phase 2 — Build Anticipation</div>
+          <div class="phase-meta">Weeks 3–4 · Jul 28–Aug 10 · Beta results + AI reveal</div>
+        </div>
+      </div>
+      <span class="phase-chevron">▼</span>
+    </button>
+    <div class="phase-body">
+
+      <!-- WEEK 3 -->
+      <div class="week-card anticipate">
+        <div class="week-header">
+          <div>
+            <div class="week-num">Week 03</div>
+            <div class="week-date">Jul 28–Aug 3</div>
+            <div class="week-title">Beta users speak: the product earns its first word-of-mouth</div>
+          </div>
+          <div class="product-focus"><strong>Products in focus</strong>Membership + Baskets hinted through beta outcomes. Never named directly.</div>
+        </div>
+        <div class="channels">
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">▶</span> YouTube</div>
+            <div class="channel-text">No new video. The podcast clip is still being amplified. <strong>Beta user outcomes are the story this week — not a campaign.</strong></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◆</span> Instagram</div>
+            <div class="channel-text">Beta users post on stories. Reshared by 1% Club. <em>“The level of personalisation. Feels criminal.”</em> <strong>No scripted brief. Authentic reactions only.</strong></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">in</span> LinkedIn + X</div>
+            <div class="channel-text">Same beta sentiment on LinkedIn. <em>“The level of personalisation. Feels criminal.”</em> <strong>FinTwit and professional networks start paying attention.</strong></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◙</span> OOH + PR</div>
+            <div class="channel-text">ET or TOI runs a piece: <strong>“SEBI is cleaning up India’s financial advice market.”</strong> <em>No mention of 1% Club. The timing creates a backdrop of urgency — the editorial does the positioning work for free.</em></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 4 -->
+      <div class="week-card anticipate">
+        <div class="week-header">
+          <div>
+            <div class="week-num">Week 04</div>
+            <div class="week-date">Aug 4–10</div>
+            <div class="week-title">One feature revealed — the AI Assistant becomes the entry point</div>
+          </div>
+          <div class="product-focus"><strong>Products in focus</strong>AI Assistant revealed. Everything else stays hidden.</div>
+        </div>
+        <div class="channels">
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">▶</span> YouTube</div>
+            <div class="channel-text">Sharan posts one video: <strong>“I’m going to show you one feature. Just one.”</strong> He opens the AI Assistant live. <strong>The app answers with a specific, personalised plan. He says nothing else.</strong> <em>Comments go crazy. The audience goes from curious to impatient.</em></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◆</span> Instagram</div>
+            <div class="channel-text">A teaser reel — <strong>no voiceover, just the app screen and the answer.</strong> A countdown to Aug 15 appears in the story. <em>The visual simplicity lets the product speak.</em></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">in</span> LinkedIn + X</div>
+            <div class="channel-text">Nikhil Kamath posts: <strong>“Here’s why I chose to back 1% Club over 50 other fintech startups.”</strong> <em>FinTwit starts paying serious attention. Other finance creators post organically.</em></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◙</span> OOH + PR</div>
+            <div class="channel-text">No new OOH. <strong>The existing creative is still running.</strong> Adding anything now would dilute the reveal moment on Aug 15.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── PHASE 3: LAUNCH ── -->
+  <div class="phase-block" id="phase3">
+    <button class="phase-toggle" onclick="togglePhase('phase3')">
+      <div class="phase-toggle-left">
+        <div class="phase-dot launch"></div>
+        <div>
+          <div class="phase-name launch">Phase 3 — Launch</div>
+          <div class="phase-meta">Week 5 · Aug 11–17 · Independence Day. App goes live.</div>
+        </div>
+      </div>
+      <span class="phase-chevron">▼</span>
+    </button>
+    <div class="phase-body">
+
+      <!-- WEEK 5 -->
+      <div class="week-card launch">
+        <div class="week-header">
+          <div>
+            <div class="week-num">Week 05</div>
+            <div class="week-date">Aug 11–17</div>
+            <div class="week-title">The app goes live.</div>
+          </div>
+          <div class="product-focus"><strong>Products in focus</strong>Membership · Baskets · AI Assistant · Money School · FIRE number as the entry hook</div>
+        </div>
+        <div class="channels">
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">▶</span> YouTube</div>
+            <div class="channel-text"><strong>The full launch video goes live on Independence Day.</strong> Sharan opens with: “Do you know your FIRE number?” He types it into the app live. Then walks through Baskets and Money School. <em>Not a feature list — a story of financial clarity.</em></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◆</span> Instagram</div>
+            <div class="channel-text">The launch reel goes up simultaneously. <strong>Early access at Founder Price. A countdown timer runs.</strong> <em>No paid push needed — four weeks of buildup do the work.</em></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">in</span> LinkedIn + X</div>
+            <div class="channel-text">Organic reposts carry the launch. <strong>The Nikhil Kamath post from last week is still live.</strong> Mid-tier finance creators who got early app access begin posting authentic reactions.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◙</span> OOH + PR</div>
+            <div class="channel-text"><strong>OOH updated — the 1% Club logo appears for the first time.</strong> Tagline: “Your journey to Financial Independence starts here.” <em>ET, Mint, and Inc42 cover the launch. The billboard’s question finally has an answer.</em></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── PHASE 4: EXPAND ── -->
+  <div class="phase-block" id="phase4">
+    <button class="phase-toggle" onclick="togglePhase('phase4')">
+      <div class="phase-toggle-left">
+        <div class="phase-dot expand"></div>
+        <div>
+          <div class="phase-name expand">Phase 4 — Expand</div>
+          <div class="phase-meta">Weeks 6–9 · Aug 18–Oct 19 · One product spotlight every 3 weeks</div>
+        </div>
+      </div>
+      <span class="phase-chevron">▼</span>
+    </button>
+    <div class="phase-body">
+
+      <!-- WEEK 6 -->
+      <div class="week-card expand">
+        <div class="week-header">
+          <div>
+            <div class="week-num">Week 06</div>
+            <div class="week-date">Aug 18–24</div>
+            <div class="week-title">FIRE number becomes the organic hook </div>
+          </div>
+          <div class="product-focus"><strong>Products in focus</strong>Retention only. No new product this week.</div>
+        </div>
+        <div class="channels">
+          <div class="channel-block full">
+            <div class="channel-label"><span class="channel-icon">◆</span> Instagram</div>
+            <div class="channel-text">Member stories continue. <strong>“What’s your number?” becomes a cultural moment</strong> across the ICP — people are sharing, comparing with friends, tagging others.</div>
+          </div>
+          <div class="channel-block full">
+            <div class="channel-label"><span class="channel-icon">in</span> LinkedIn + X</div>
+            <div class="channel-text">Launch-week momentum carries organically. <strong>This is the week the community becomes the campaign.</strong> No new paid push.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">▶</span> YouTube</div>
+            <div class="channel-text">No new video. <strong>The Aug 15 launch video is still being discovered</strong> through search and shares.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◙</span> OOH + PR</div>
+            <div class="channel-text"><strong>No new OOH.</strong> Brand presence maintained through earned media — member sharing, press coverage, social proof.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 7 -->
+      <div class="week-card expand">
+        <div class="week-header">
+          <div>
+            <div class="week-num">Week 07</div>
+            <div class="week-date">Sep 1–7</div>
+            <div class="week-title">Insurance gets its moment — a protection story, not a product pitch</div>
+          </div>
+          <div class="product-focus"><strong>Products in focus</strong>Insurance via Pillow — cross-sold to existing members as a protection story.</div>
+        </div>
+        <div class="channels">
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">▶</span> YouTube</div>
+            <div class="channel-text">Sharan records a direct video: <strong>“You’re building wealth. One hospital bill can undo all of it.”</strong> He walks through what happens to a family’s savings without health cover. Then introduces Pillow — free advisor call, no commission pressure. <em>Books one on camera, live.</em></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◆</span> Instagram</div>
+            <div class="channel-text">A mini-documentary — one real member, before and after their Pillow call. <strong>What they thought they had. What they actually had. What changed.</strong> <em>Real person. Real numbers. Documentary format, not testimonial.</em></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">in</span> LinkedIn + X</div>
+            <div class="channel-text">No paid push. <strong>The YouTube video is shared organically</strong> by members who recognise their own situation. Insurance anxiety is high-resonance for the 32–42 ICP.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◙</span> OOH + PR</div>
+            <div class="channel-text">No new OOH. <strong>The Pillow story plays best on screen</strong> — the emotion is in the numbers, not a billboard.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 8 -->
+      <div class="week-card expand">
+        <div class="week-header">
+          <div>
+            <div class="week-num">Week 08</div>
+            <div class="week-date">Sep 22–28</div>
+            <div class="week-title">Fixed Deposits — introduced as an emergency fund decision, not a banking product</div>
+          </div>
+          <div class="product-focus"><strong>Products in focus</strong>Fixed Deposits — the FD marketplace framed as an emergency fund decision.</div>
+        </div>
+        <div class="channels">
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">▶</span> YouTube</div>
+            <div class="channel-text"><strong>“Where should your emergency fund actually sit?”</strong> Sharan compares savings account vs FD vs liquid fund. Opens the app live — Suryoday SF Bank at 7.25% p.a. <em>Concrete. Real numbers. Not a feature walkthrough — a financial decision made on camera.</em></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◆</span> Instagram</div>
+            <div class="channel-text">A carousel: <strong>“Your bank is giving you 3.5%. Here’s what you’re leaving on the table.”</strong> <em>Interactive story: enter your emergency fund amount, see exactly how much you’re losing. High share rate.</em></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">in</span> LinkedIn + X</div>
+            <div class="channel-text">No paid amplification. <strong>Anyone with a savings account feels the loss when they see the numbers.</strong> Inherently shareable for the 32–42 segment.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◙</span> OOH + PR</div>
+            <div class="channel-text"><strong>No new OOH.</strong> The FD story is a numbers play — it works best where people can do the math themselves.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEEK 9 -->
+      <div class="week-card expand">
+        <div class="week-header">
+          <div>
+            <div class="week-num">Week 09</div>
+            <div class="week-date">Oct 13–19</div>
+            <div class="week-title">Credit Cards — a 30-day AI experiment, not a card discovery feature</div>
+          </div>
+          <div class="product-focus"><strong>Products in focus</strong>Credit Cards — introduced as a spend optimisation tool via Aly.</div>
+        </div>
+        <div class="channels">
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">▶</span> YouTube</div>
+            <div class="channel-text">Aly presents: <strong>“I let AI decide which credit card to swipe for every purchase for 30 days.”</strong> Real experiment. Real savings tracked. <em>The card wallet feature shown in action — not explained, demonstrated.</em></div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◆</span> Instagram</div>
+            <div class="channel-text">Aly’s reel from the 30-day experiment. <strong>Specific numbers.</strong> “Month 1: ₹4,200. Month 2: ₹6,800. Month 3: ₹7,100.” Compounding optimisation, visualised as a graph.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">in</span> LinkedIn + X</div>
+            <div class="channel-text"><strong>Paid push by LinkedIn influencers for Aly’s posts.</strong> The Credit Cards feature is the one product requiring a paid amplification push — the ICP for it skews more professional and LinkedIn-native.</div>
+          </div>
+          <div class="channel-block">
+            <div class="channel-label"><span class="channel-icon">◙</span> OOH + PR</div>
+            <div class="channel-text"><strong>No new OOH.</strong> The Credit Card story is personal and digital — it needs a screen, not a billboard.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">1<span>%</span> Club — GTM Plan</div>
+  <div class="footer-note">Distribution &amp; Channel Strategy · by Harshita Singla</div>
+</footer>
+
+<script>
+function togglePhase(id) {
+  const block = document.getElementById(id);
+  block.classList.toggle('open');
+}
+</script>
+
+</body></html>
